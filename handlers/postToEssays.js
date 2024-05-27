@@ -1,4 +1,4 @@
-const {client} = require('../connections/connectToDb')
+const client = require('../connections/connectToDb')
 
 const myDB = client.db("Pranav")
 const essays = myDB.collection("Essays")

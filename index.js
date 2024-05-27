@@ -4,12 +4,18 @@ const bodyParser = require('body-parser')
 const app = express();
 const cors = require('cors');
 const postToProjects = require('./handlers/postToProjects');
+const postToEssays = require('./handlers/postToEssays');
 
 app.use(bodyParser.json());
-app.use(cors);
+
+const corsOptions = {
+    origin: 'http://localhost:4200' // Allow requests from this origin
+  };
+  
+app.use(cors(corsOptions));
 
 app.get('', (req,res)=>{
-    console.log("Home screen")
+    console.log("Home screen");
 })
 
 app.post('/essays', (req,res)=>{
@@ -18,4 +24,12 @@ app.post('/essays', (req,res)=>{
 
 app.post('/projects', (req,res)=>{
     postToProjects(req.body);
+})
+
+app.listen(3000, () => {
+    try {
+        console.log("server running on port 3000")
+    } catch (e) {
+        console.log(e)
+    }
 })

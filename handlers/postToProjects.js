@@ -1,7 +1,7 @@
 const client = require('../connections/connectToDb')
 
 const myDB = client.db("Pranav")
-console.log(client)
+//console.log(client)
 const projects = myDB.collection("Projects")
 
 async function postToProjects(body) {
